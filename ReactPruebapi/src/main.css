@@ -22,7 +22,7 @@ body{
   display: flex;
   flex-direction: column;
 }
-/*
+
 .container {
   display: flex;
   flex-direction:row;
@@ -36,10 +36,11 @@ body{
   margin-top:10px;
   width:100%;
   height: auto; 
- }*/
+ }
 
  .navbar {
   height: 40px;
+  font-size:1em;
  }
 
 
@@ -99,6 +100,13 @@ body {
 
   background-color:#babdf800;
 }
+h5 {
+  font-size: 1.2em;
+  line-height: 1.1;
+  margin-top:10px;
+  margin-left: 20px;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
