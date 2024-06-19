@@ -25,15 +25,15 @@ function MiApi() {
     if (sol === null) {
       setSol(getRandomNumber());
     }
-  }, [sol]);
+  }, []);
 
   const apikey = 'AhJwfmttiqA8MJR4waiCbXDvY7jWnmxJl83hBts3'
-  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&limit=40&api_key=${apikey}`
+  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&limit=30&api_key=${apikey}`
   console.log(url);
 
 
   const consultaDeApi = async () => {
-    setLoading(true);
+    //setLoading(true);
     setError(null);
     try {
       const response = await fetch(url);
@@ -48,7 +48,8 @@ function MiApi() {
   };
 
   useEffect(() => {
-    consultaDeApi();
+    consultaDeApi();   
+
   }, [sol, rover]);
 
   console.log(nasaData)
@@ -58,8 +59,7 @@ function MiApi() {
 
   if (loading) {
     return <div>
-      <Spinner animation="border" variant="danger" />
-      Loading...
+            Loading...
       <Spinner animation="border" variant="danger" />
       </div>;
   }
@@ -74,12 +74,12 @@ function MiApi() {
 
       <Container>
         <Row className='g-4' >
-          {filteredNasa.map((photo) => (
+          {filteredNasa.slice(0, 30).map((photo) => (
             <Col key={photo.id}>
               <CardMars photo={photo} />
             </Col>
-          ))}
-        </Row>
+          ))}          
+        </Row>  
 
       </Container>
     </>
